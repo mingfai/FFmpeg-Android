@@ -44,17 +44,17 @@ fi
 git reset --hard
 git clean -f -d
 git checkout `cat ../ffmpeg-version`
-patch -p1 <../FFmpeg-VPlayer.patch
-[ $PIPESTATUS == 0 ] || exit 1
+#patch -p1 <../FFmpeg-VPlayer.patch
+#[ $PIPESTATUS == 0 ] || exit 1
 
 git log --pretty=format:%H -1 > ../ffmpeg-version
 
-TOOLCHAIN=/tmp/vplayer
+TOOLCHAIN=/tmp/gavin
 SYSROOT=$TOOLCHAIN/sysroot/
-$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-14 --install-dir=$TOOLCHAIN
+$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-14 --install-dir=$TOOLCHAIN --system=linux-x86_64
 
 export PATH=$TOOLCHAIN/bin:$PATH
-export CC="ccache arm-linux-androideabi-gcc"
+export CC="arm-linux-androideabi-gcc"
 export LD=arm-linux-androideabi-ld
 export AR=arm-linux-androideabi-ar
 
@@ -73,6 +73,10 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-shared \
   --disable-symver \
   --disable-doc \
+  --disable-htmlpages \
+  --disable-manpages \
+  --disable-podpages \
+  --disable-txtpages \
   --disable-ffplay \
   --disable-ffmpeg \
   --disable-ffprobe \
@@ -95,8 +99,8 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-asm \
   --enable-version3"
 
-
-for version in neon armv7 vfp armv6; do
+# neon armv7 vfp armv6
+for version in armv7; do
 
   cd $SOURCE
 
@@ -135,7 +139,10 @@ for version in neon armv7 vfp armv6; do
   make install || exit 1
 
   rm libavcodec/inverse.o
-  $CC -lm -lz -shared --sysroot=$SYSROOT -Wl,--no-undefined -Wl,-z,noexecstack $EXTRA_LDFLAGS libavutil/*.o libavutil/arm/*.o libavcodec/*.o libavcodec/arm/*.o libavformat/*.o libswresample/*.o libswscale/*.o -o $PREFIX/libffmpeg.so
+  rm libavcodec/log2_tab.o
+  rm libswresample/log2_tab.o
+  rm libavformat/log2_tab.o
+  $CC -lm -lz -shared --sysroot=$SYSROOT -Wl,--no-undefined -Wl,-z,noexecstack $EXTRA_LDFLAGS libavutil/*.o libavutil/arm/*.o libavcodec/*.o libavcodec/arm/*.o libavformat/*.o libswresample/*.o libswscale/*.o libswscale/arm/*.o compat/*.o libswresample/arm/*.o -o $PREFIX/libffmpeg.so
 
   cp $PREFIX/libffmpeg.so $PREFIX/libffmpeg-debug.so
   arm-linux-androideabi-strip --strip-unneeded $PREFIX/libffmpeg.so
