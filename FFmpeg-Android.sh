@@ -51,7 +51,7 @@ git log --pretty=format:%H -1 > ../ffmpeg-version
 
 TOOLCHAIN=/tmp/gavin
 SYSROOT=$TOOLCHAIN/sysroot/
-$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-14 --install-dir=$TOOLCHAIN --system=linux-x86_64
+$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-18 --install-dir=$TOOLCHAIN --system=darwin-x86
 
 export PATH=$TOOLCHAIN/bin:$PATH
 export CC="arm-linux-androideabi-gcc"
