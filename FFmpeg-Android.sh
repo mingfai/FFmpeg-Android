@@ -93,6 +93,8 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-demuxer=sbg \
   --enable-decoders \
   --enable-encoders \
+  --enable-gpl \
+  --enable-encoder=libx264 \
   --enable-network \
   --enable-swscale  \
   --enable-asm \
