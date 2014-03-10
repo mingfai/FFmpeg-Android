@@ -84,7 +84,6 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-avdevice \
   --disable-avfilter \
   --disable-encoders \
-  --disable-muxers \
   --disable-bsfs \
   --disable-filters \
   --disable-devices \
