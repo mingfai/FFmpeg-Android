@@ -139,7 +139,8 @@ for version in armv7; do
   make -j4 || exit 1
   make install || exit 1
 
-  rm libavcodec/inverse.o
+  #not in our version....
+  #rm libavcodec/inverse.o
   rm libavcodec/log2_tab.o
   rm libswresample/log2_tab.o
   rm libavformat/log2_tab.o
