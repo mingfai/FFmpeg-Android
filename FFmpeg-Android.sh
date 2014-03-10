@@ -83,9 +83,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-ffserver \
   --disable-avdevice \
   --disable-avfilter \
-  --disable-encoders \
   --disable-bsfs \
-  --disable-filters \
   --disable-devices \
   --disable-everything \
   --enable-protocols  \
@@ -94,10 +92,12 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-muxers \
   --disable-demuxer=sbg \
   --enable-decoders \
+  --enable-encoders \
   --enable-network \
   --enable-swscale  \
   --enable-asm \
   --enable-version3 \
+  --enable-libx264 \
   --enable-debug=3 "
 
 # neon armv7 vfp armv6
