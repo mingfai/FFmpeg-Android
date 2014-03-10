@@ -97,7 +97,8 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-network \
   --enable-swscale  \
   --enable-asm \
-  --enable-version3"
+  --enable-version3 \
+  --enable-debug=3 "
 
 # neon armv7 vfp armv6
 for version in armv7; do
