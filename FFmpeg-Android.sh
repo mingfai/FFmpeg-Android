@@ -92,6 +92,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-protocols  \
   --enable-parsers \
   --enable-demuxers \
+  --enable-muxers \
   --disable-demuxer=sbg \
   --enable-decoders \
   --enable-network \
