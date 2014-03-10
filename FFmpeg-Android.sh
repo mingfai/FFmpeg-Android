@@ -99,6 +99,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --extra-ldflags=-L../build/libx264/armv7/lib  \
   --enable-network \
   --enable-swscale  \
+  --enable-hwaccels \
   --enable-asm \
   --enable-version3 \
   --enable-debug=3 "
