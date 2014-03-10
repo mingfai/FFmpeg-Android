@@ -95,6 +95,8 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-encoders \
   --enable-gpl \
   --enable-libx264 \
+  --extra-cflags=-I../build/libx264/armv7/include/ \
+  --extra-ldflags=-L../build/libx264/armv7/lib  \
   --enable-network \
   --enable-swscale  \
   --enable-asm \
