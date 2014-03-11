@@ -139,8 +139,8 @@ for version in armv7; do
   cp config.* $PREFIX
   [ $PIPESTATUS == 0 ] || exit 1
 
-  make clean
-  make -j4 || exit 1
+ # make clean
+  make -j8 || exit 1
   make install || exit 1
 
   #not in our version....

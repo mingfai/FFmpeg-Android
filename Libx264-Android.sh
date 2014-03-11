@@ -36,8 +36,7 @@ CFLAGS="-O3 -Wall -mthumb -pipe -fpic -fasm \
 LIBX264_FLAGS=" --enable-pic \
   --enable-static \
   --disable-cli \
-  --disable-asm \
-  --host=arm-linux
+  --host=arm-linux \
   --cross-prefix=arm-linux-androideabi- "
 
 # neon armv7 vfp armv6
