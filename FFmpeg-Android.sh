@@ -82,7 +82,6 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-ffprobe \
   --disable-ffserver \
   --disable-avdevice \
-  --disable-avfilter \
   --disable-bsfs \
   --disable-devices \
   --disable-everything \
@@ -99,7 +98,8 @@ FFMPEG_FLAGS="--target-os=linux \
   --extra-ldflags=-L../build/libx264/armv7/lib  \
   --enable-network \
   --enable-swscale  \
-  --enable-hwaccels \
+  --enable-hwaccels 
+  --enable-avfilter \
   --enable-asm \
   --enable-version3 \
   --enable-debug=3 "
