@@ -100,6 +100,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-swscale  \
   --enable-hwaccels 
   --enable-avfilter \
+  --enable-filter=transpose \
   --enable-asm \
   --enable-version3 \
   --enable-debug=3 "
