@@ -113,8 +113,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-filter=transpose \
   --enable-filter=scale \
   --enable-asm \
-  --enable-version3 \
-  --enable-debug=3 "
+  --enable-version3 "
 
 # neon armv7 vfp armv6
 for version in armv7; do
