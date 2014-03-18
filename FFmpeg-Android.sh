@@ -88,7 +88,9 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-protocols  \
   --enable-protocol=file  \
   --enable-protocol=pipe  \
-  --enable-parsers \
+  --disable-parsers \
+  --enable-parser=h264 \
+  --enable-parser=aac \
   --disable-demuxers \
   --enable-demuxer=mp4 \
   --enable-demuxer=mov \
