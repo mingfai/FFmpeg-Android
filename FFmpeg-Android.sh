@@ -87,9 +87,12 @@ FFMPEG_FLAGS="--target-os=linux \
   --disable-everything \
   --enable-protocols  \
   --enable-parsers \
-  --enable-demuxers \
-  --disable-demuxer=sbg \
-  --enable-decoders \
+  --disable-demuxers \
+  --enable-demuxer=mp4 \
+  --enable-demuxer=mov \
+  --disable-decoders \
+  --enable-decoder=aac \
+  --enable-decoder=libx264 \
   --disable-muxers \
   --enable-muxer=mp4 \
   --disable-encoders \
@@ -101,7 +104,7 @@ FFMPEG_FLAGS="--target-os=linux \
   --extra-ldflags=-L../build/libx264/armv7/lib  \
   --enable-network \
   --enable-swscale  \
-  --enable-hwaccels 
+  --enable-hwaccels \
   --enable-avfilter \
   --enable-filter=transpose \
   --enable-filter=scale \
