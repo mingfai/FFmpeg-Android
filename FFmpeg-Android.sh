@@ -91,7 +91,9 @@ FFMPEG_FLAGS="--target-os=linux \
   --enable-muxers \
   --disable-demuxer=sbg \
   --enable-decoders \
-  --enable-encoders \
+  --disable-encoders \
+  --enable-encoder=aac \
+  --enable-encoder=libx264 \
   --enable-gpl \
   --enable-libx264 \
   --extra-cflags=-I../build/libx264/armv7/include/ \
